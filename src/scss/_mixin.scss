@@ -1,0 +1,37 @@
+// レスポンシブ
+@mixin mq($mediaquery: md) {
+    @media #{map-get($mediaquerys, $mediaquery)} {
+        @content;
+    }
+}
+
+// includeでの呼び出し方（PC⇨スマホ）
+// 　　　　@include mq(sm){
+
+//     }
+
+@mixin flex(
+  $jc: center,
+  $ai: center,
+  $dir: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $jc;
+  align-items: $ai;
+}
+// 呼び出し方
+// .b {
+//     @include flex(space-between, center, row);
+//     }
+
+@mixin btn {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius:24px ;
+}
+
