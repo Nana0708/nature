@@ -1,0 +1,153 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.news {
+  &__container {
+    margin: 120px auto auto 215px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+
+    @media (max-width: 922px) {
+      margin: 60px 20px auto;
+      flex-direction: column;
+      gap: 40px;
+      align-items: stretch;
+      position: relative;
+    }
+  }
+  &__ttl {
+    @media (max-width: 922px) {
+      position: absolute;
+      top: 0;
+      left: 22px;
+
+    }
+  }
+
+  &__left {
+    &-content {
+      width: 100%;
+      max-width: 400px;
+
+      @media (max-width: 922px) {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 22px;
+      }
+    }
+
+    &-txt {
+      margin-top: 45px;
+      font-weight: 500;
+
+      @media (max-width: 922px) {
+        font-size: 14px;
+        line-height: 1.8;
+        text-align: left;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__right {
+    &-content {
+      width: 100%;
+      padding: 50px 50px;
+      background: $whiteColor02;
+      border-radius: 100px 0px 0px 100px;
+      box-shadow: 1px 1px 10px #00000029;
+
+      @media (max-width: 922px) {
+        padding: 40px 30px;
+        border-radius: 50px 0px 0px 50px;
+
+      }
+    }
+  }
+
+
+
+  .article {
+    &__list a {
+      display: block;
+      &:hover .article__item {
+        opacity: 0.7;
+      }
+    }
+    
+    &__header {
+      display: flex;
+      align-items: center;
+      &:not(:first-child){
+        margin-top: 38px;
+      }
+    }
+
+    &__date {
+      @media (max-width: 922px) {
+        font-size: 14px;
+      }
+    }
+
+    &__category {
+      display: inline-block;
+      padding: 2px 21px;
+      margin-left: 11px;
+      color: $whiteColor02;
+      background: $primaryColor;
+      border-radius: 5px;
+
+      @media (max-width: 922px) {
+        padding: 4px 16px;
+        margin-left: 12px;
+        font-size: 12px;
+      }
+    }
+
+    &__ttl {
+      margin-top: 16px;
+      font-weight: bold;
+      font-size: 20px;
+
+      @media (max-width: 922px) {
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__btn {
+    background: $whiteColor;
+    margin: 30px auto 0;
+    border: 2px solid $primaryColor;
+    border-radius: 50vb;
+    width: 301px;
+
+    @media (max-width: 922px) {
+      max-width: 100%;
+      margin-top: 30px;
+    }
+
+    &-link {
+      @include btn;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $primaryColor;
+      background: $whiteColor;
+      transition: 0.3s;
+
+      &:hover {
+        background: $primaryColor;
+        color: $whiteColor;
+      }
+    }
+  }
+}
+

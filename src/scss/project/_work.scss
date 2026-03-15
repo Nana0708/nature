@@ -1,0 +1,221 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.work {
+    margin-top: 103px;
+    
+    @include mq(tb) {
+        margin-top: 60px;
+    }
+    
+    @include mq(sp) {
+        margin-top: 40px;
+    }
+    
+    &__container {
+        width: 80%;
+        padding-top: 50px;
+        padding-left: 203px;
+        background: $whiteColor02;
+        box-shadow: 1px 1px 10px #00000029;
+        border-radius: 0px 100px 100px 0px;
+        
+        // 875px前後での崩れ対策
+        @media screen and (max-width: 900px) {
+            width: 85%;
+            padding-left: 100px;
+            border-radius: 0px 50px 50px 0px;
+        }
+        
+        @include mq(tb) {
+            width: 90%;
+            padding-left: 60px;
+            padding-top: 40px;
+        }
+        
+        @include mq(sp) {
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 30px;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+    
+    &__tabs {
+        margin-top: 50px;
+        display: flex;
+        gap: 19px;
+        
+        @media screen and (max-width: 900px) {
+            gap: 12px;
+            margin-top: 40px;
+        }
+        
+        @include mq(tb) {
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        @include mq(sp) {
+            gap: 8px;
+            margin-top: 25px;
+            justify-content: space-between;
+        }
+    }
+    
+    &__tab {
+        color: $accentColor;
+        background: $whiteColor;
+        box-shadow: 0px 3px 6px $blackColor;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        width: 195px;
+        height: 60px;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        
+        @media screen and (max-width: 900px) {
+            width: 160px;
+            height: 55px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+        
+        @include mq(tb) {
+            width: 140px;
+            height: 50px;
+            font-size: 16px;
+        }
+        
+        @include mq(sp) {
+            flex: 1;
+            min-width: 0;
+            height: 55px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        
+        &:hover {
+            color: $whiteColor;
+            background: $primaryColor;
+        }
+        
+        &.active {
+            color: $whiteColor;
+            background: $primaryColor;
+            outline: 3px double $primaryColor;
+        }
+    }
+    
+    &__panels {
+        margin-top: 50px;
+        padding-bottom: 50px;
+        
+        @media screen and (max-width: 900px) {
+            margin-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        @include mq(tb) {
+            margin-top: 35px;
+            padding-bottom: 35px;
+        }
+        
+        @include mq(sp) {
+            margin-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+    
+    &__panel {
+        display: none;
+        
+        &.active {
+            display: block;
+        }
+    }
+    
+    &__description {
+        margin-bottom: 30px;
+        line-height: 1.8;
+        
+        @media screen and (max-width: 900px) {
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        
+        @include mq(tb) {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        @include mq(sp) {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            
+            br {
+                display: none;
+            }
+        }
+    }
+    
+    &__slider {
+        padding-right: 50px;
+        margin-left: -203px;
+        
+        @media screen and (max-width: 900px) {
+            padding-right: 30px;
+            margin-left: -100px;
+        }
+        
+        @include mq(tb) {
+            padding-right: 20px;
+            margin-left: -60px;
+        }
+        
+        @include mq(sp) {
+            padding-right: 0;
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+        
+        &-item {
+            padding: 0 10px;
+            
+            @include mq(sp) {
+                padding: 0 8px;
+            }
+        }
+        
+        &-img-wrapper {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            
+            @media screen and (max-width: 900px) {
+                height: 220px;
+            }
+            
+            @include mq(tb) {
+                height: 200px;
+            }
+            
+            @include mq(sp) {
+                height: 180px;
+                border-radius: 8px;
+            }
+        }
+        
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

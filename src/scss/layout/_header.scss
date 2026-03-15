@@ -1,0 +1,327 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.header {
+    z-index: $zIndexHeader;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    @include mq("sp") {
+      padding-top: 0;
+    }
+
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 40px;
+        height: 90px;
+        @include flex(space-between, center, row);
+        border-radius: 50vh;
+        background-color: $whiteColor;
+        box-shadow: 0px 3px 6px #00000029;
+        position: relative;
+        @include mq(sp) {
+            padding: 0 20px;
+            height: 60px;
+            border: none;
+            border-radius: 0;
+        }
+    }
+
+    &__logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &-wrapper {
+            max-width: 168px;
+            width: 100%;
+            height: 29px;
+            @include mq(sp) {
+                max-width: 116px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__nav {
+        @include mq(sp) {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px);
+            height: calc(100dvh - 60px);
+            background-color: $whiteColor;
+            padding: 40px 20px 30px;
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0px 3px 6px #00000029;
+            
+            &.is-open {
+                display: flex;
+            }
+        }
+
+        &-list {
+            @include flex;
+            gap: 10px;
+            @include mq(sp) {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                flex-shrink: 0;
+            }
+        }
+
+        &-item {
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: clamp(1.2rem, (100vw - 858px) / 2, 1.6rem);
+            
+            &:hover {
+                color: $primaryColor;
+            }
+
+            // PC幅で最初のアイテム（トップ）を非表示
+            &:first-child {
+                display: none;
+                
+                @include mq(sp) {
+                    display: block;
+                }
+            }
+
+            @include mq(sp) {
+                width: 100%;
+                border-bottom: 1px solid $primaryColor;
+                padding: 17px 0;
+                position: relative;
+                
+                &:first-child {
+                    border-top: 1px solid $primaryColor;
+                    order: 1;
+                }
+                &:nth-child(2) {
+                    order: 2;
+                }
+                &:nth-child(3) {
+                    order: 4;
+                }
+                &:nth-child(4) {
+                    order: 3;
+                }
+                &:nth-child(5) {
+                    order: 5;
+                }
+                &:nth-child(6) {
+                    order: 6;
+                }
+                &:nth-child(8) {
+                    border: none;
+                }
+            }
+        }
+
+        &-link {
+            @include mq(sp) {
+                display: inline-block;
+                font-size: 1.6rem;
+                position: relative;
+            }
+        }
+
+        &-deco {
+            display: none;
+            @include mq(sp) {
+                display: inline-block;
+                font-size: 1.2rem;
+                color: $accentColor;
+                font-weight: 600;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    // ナビゲーションアイテム右側の矢印
+    &__nav-item {
+        @include mq(sp) {
+            &::before {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 25px;
+                height: 2px;
+                background: $primaryColor;
+            }
+            &.header__info::before {
+                display: none;
+            }
+            &.header__contact-btn::before {
+                display: none;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 43%;
+                transform: translateY(-50%);
+                transform: rotate(45deg);
+                width: 10px;
+                height: 2px;
+                background: $primaryColor;
+            }
+
+            &.header__info::after {
+                display: none;
+            }
+            &.header__contact-btn::after {
+                display: none;
+            }
+        }
+    }
+
+    &__info {
+        display: none;
+        line-height: 1.5;
+        
+        @include mq(sp) {
+            text-align: center;
+            margin-top: auto;
+            padding: 30px 20px 0;
+            flex-shrink: 0;
+            order: 7;
+        }
+
+        &-txt {
+            @include mq(sp) {
+                font-size: 1.4rem;
+                color: $primaryColor;
+                font-weight: 600;
+                
+                &:not(:first-child) {
+                    margin-top: 9px;
+                }
+            }
+        }
+
+        &-tel {
+            @include mq(sp) {
+                display: block;
+                font-size: 2.0rem;
+                color: $primaryColor;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+
+        &-time {
+            @include mq(sp) {
+                font-size: 1.4rem;
+                color: $primaryColor;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__hamburger {
+        width: 20px;
+        height: 10px;
+        position: relative;
+        z-index: $zIndexMenu;
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        
+        @include mq("sp") {
+            display: block;
+        }
+
+        &-bar {
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            background: $primaryColor;
+            left: 50%;
+            transition: all 0.3s ease;
+            
+            &:first-child {
+                top: 0;
+                transform: translate(-50%, 0);
+            }
+            
+            &:nth-child(2) {
+                top: 70%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-txt {
+            color: $primaryColor;
+            font-size: 10px;
+            position: absolute;
+            top: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        &.is-open {
+            .header__hamburger-bar {
+                &:first-child {
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+                
+                &:nth-child(2) {
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
+            }
+
+            .header__hamburger-txt {
+                content: 'CLOSE';
+            }
+        }
+    }
+    
+    &__contact-btn {
+        @include btn;
+        color: $whiteColor;
+        background: $accentColor;
+        transition: 0.3s;
+        
+        &:hover {
+            background: $whiteColor;
+            outline: 1px solid $accentColor;
+            color: $accentColor;
+        }
+
+        @include mq(sp) {
+            width: 100%;
+            max-width: 280px;
+            margin: 30px auto 0;
+            padding: 18px 0;
+            border-radius: 50vh;
+            text-align: center;
+            display: block;
+            border: none;
+            flex-shrink: 0;
+            order: 8;
+            
+            .header__btn-link {
+                color: $whiteColor;
+                text-decoration: none;
+                font-size: 1.6rem;
+                font-weight: bold;
+            }
+        }
+    }
+}

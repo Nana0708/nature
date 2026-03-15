@@ -1,0 +1,103 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.about {
+    &__container {
+        margin-top: 68px;
+        padding: 160px 0;
+        position: relative;
+        @include mq("sp") {
+          padding: 80px 0 120px;
+        }
+    }
+    &__logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &-wrapper {
+            width: 100%;
+            max-width: 314px;
+            height: 54px;
+            margin: 0 auto 50px;
+            @media screen and (max-width: 767px) {
+                max-width: 232px;
+                height: 40px;
+            }
+        }
+    }
+    
+    &__txt {
+        text-align: center;
+        margin-top: 25px;
+        @media screen and (max-width: 767px) {
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+    }
+    
+    &__figure {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        &.is-fade {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &--top-left {
+            width: 100%;
+            max-width: 200px;
+            height: 252px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @media screen and (max-width: 767px) {
+                max-width: 63px;
+                height: 79px;
+                top: -20px;
+            }
+        }
+        &--top-right {
+            width: 100%;
+            max-width: 181px;
+            height: 217px;
+            position: absolute;
+            top: 48px;
+            right: 0;
+            @media screen and (max-width: 767px) {
+                max-width: 57px;
+                height: 68px;
+                top: 20px;
+            }
+        }
+        &--bottom-left {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            position: absolute;
+            bottom: -50px;
+            left: 80px;
+            @media screen and (max-width: 767px) {
+                max-width: 86px;
+                height: 86px;
+                left: 10px;
+            }
+        }
+        &--bottom-right {
+            width: 100%;
+            max-width: 222px;
+            height: 269px;
+            position: absolute;
+            right: 0;
+            bottom: -70px;
+            @media screen and (max-width: 767px) {
+                max-width: 92px;
+                height: 113px;
+            }
+        }
+    }
+}

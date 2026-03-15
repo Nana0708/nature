@@ -1,0 +1,161 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.p-contact-confirm {
+    padding: 0 37px;
+    background: $whiteColor;
+    line-height: 1.5;
+    
+    &__container {
+        padding: 0 166px;
+        @include mq("sp") {
+          padding: 0 20px;
+        }
+    }
+    
+    &__breadcrumb {
+        padding-top: 141px;
+        @include mq("sp") {
+          padding-top: 80px;
+        }
+    }
+        // 矢印を非表示
+    &__custom-select-wrapper::before {
+        display: none !important;
+    }
+    
+    // セレクトボックスをクリック不可に
+    &__custom-select-trigger {
+        pointer-events: none;
+        cursor: default;
+    }
+    
+    // ドロップダウンメニューを完全に非表示
+    &__custom-select-options {
+        display: none !important;
+    }
+
+    &__wrapper {
+        margin-top: 47px;
+        padding-bottom: 80px;
+
+        @include mq("sp") {
+            padding-bottom: 60px;
+        }
+    }
+
+    &__box {
+        background-color: $whiteColor02;
+        border-radius: 40px;
+        padding: 60px 80px;
+        box-shadow: 0 2px 10px $shadowColor;
+
+        @include mq("sp") {
+            padding: 40px 24px;
+            border-radius: 24px;
+        }
+    }
+
+    &__item {
+        &:not(:first-of-type){
+            margin-top: 25px;
+        }
+
+
+        &:last-of-type {
+            margin-bottom: 50px;
+            padding-bottom: 0;
+        }
+
+        @include mq("sp") {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+        }
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: bold;
+        color: $blackColor;
+
+
+        @include mq("sp") {
+            font-size: 16px;
+        }
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 5px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.6;
+
+        &--required {
+            background-color: $primaryColor;
+            color: $whiteColor02;
+        }
+    }
+
+    &__value {
+        font-size: 16px;
+        color: #666666;
+        line-height: 1.6;
+        padding-left: 0;
+        margin-top: 8px;
+
+        @include mq("sp") {
+            font-size: 14px;
+        }
+
+        &--textarea {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    }
+
+    &__btn-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+
+        @include mq("sp") {
+            margin-top: 40px;
+        }
+    }
+
+    &__btn {
+        padding: 16px 80px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $primaryColor;
+        background-color: $whiteColor02;
+        border: 2px solid $primaryColor;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $primaryColor;
+            color: $whiteColor02;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(155, 200, 139, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        @include mq("sp") {
+            padding: 14px 60px;
+            font-size: 16px;
+        }
+    }
+}
+

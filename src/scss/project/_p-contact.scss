@@ -1,0 +1,327 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.p-contact {
+    padding: 0 37px;
+    background: $whiteColor;
+    
+    &__container {
+        padding: 0 166px;
+        margin-bottom: 160px;
+        @include mq("sp") {
+          padding: 0 20px;
+          
+        }
+    }
+    
+    &__breadcrumb {
+        padding-top: 141px;
+        @include mq("sp") {
+          padding-top: 80px;
+        }
+    }
+    
+    &__txt {
+        margin-top: 37px;
+        @include mq("sp") {
+          margin-top: 24px;
+          line-height: 1.3;
+        }
+    }
+    
+    &__form-wrapper {
+        margin-top: 47px;
+        background-color: $whiteColor02;
+        border-radius: 40px;
+        padding: 60px 180px;
+        box-shadow: 0 2px 10px $shadowColor;
+    
+        @include mq("sp") {
+          padding: 40px 24px;
+          border-radius: 24px;
+        }
+    }
+    
+    &__field {
+        margin-bottom: 40px;
+        & br {
+            display: none;
+        }
+    
+        &:last-of-type {
+          margin-bottom: 50px;
+        }
+
+        // エラー状態のフィールド
+        &.is-error {
+          .p-contact__input,
+          .p-contact__textarea,
+          .p-contact__custom-select-trigger {
+            border-color: #DC143C !important;
+          }
+
+          .p-contact__error {
+            display: block !important;
+          }
+        }
+    }
+    
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: bold;
+        color: $blackColor;
+    
+        @include mq("sp") {
+          font-size: 16px;
+        }
+
+    }
+
+    
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 5px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.6;
+    
+        &--required {
+          background-color: $primaryColor;
+          color: $whiteColor02;
+        }
+    }
+
+    // ============================================
+    // カスタムセレクトボックス
+    // ============================================
+    &__custom-select-wrapper {
+        position: relative;
+        max-width: 400px;
+    
+        // 矢印を最初から表示（常に表示）
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%) rotate(45deg);
+            width: 16px;
+            height: 16px;
+            border-bottom: 3px solid #93C572;
+            border-right: 3px solid #93C572;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+            z-index: 1;
+            opacity: 1; // 常に表示
+            visibility: visible; // 常に表示
+        }
+    
+        // オープン時に矢印を回転
+        &.is-open::before {
+            transform: translateY(-50%) rotate(225deg);
+        }
+        &.is-confirm-page::before {
+            display: none !important;
+        }
+    }
+    
+    &__custom-select {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    &__custom-select-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 400px;
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 16px;
+        color: #999999;
+        background-color: $whiteColor02;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    
+        &:hover {
+            background-color: rgba($primaryColor, 0.03);
+        }
+    }
+    
+    &__custom-select-text {
+        flex: 1;
+    }
+    
+    &__custom-select-options {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        background-color: $whiteColor;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+        // オープン状態
+        .p-contact__custom-select.is-open & {
+            max-width: 400px;
+            max-height: 300px;
+            opacity: 1;
+            overflow-y: auto;
+        }
+    }
+    
+    &__custom-select-option {
+        padding: 16px 20px;
+        font-size: 16px;
+        color: $primaryColor;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        border-bottom: 1px dashed rgba($primaryColor, 0.3);
+    
+        &:last-child {
+            border-bottom: none;
+        }
+    
+        &:hover {
+            background-color: rgba($primaryColor, 0.1);
+        }
+    
+        &.is-selected {
+            background-color: rgba($primaryColor, 0.15);
+            font-weight: 700;
+        }
+    }
+
+    // 選択済み状態
+    &__custom-select[data-value]:not([data-value=""]) {
+        .p-contact__custom-select-text {
+            color: $primaryColor;
+            font-weight: 500;
+        }
+    }
+
+    // 隠しinput
+    &__custom-select-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    &__input {
+        width: 100%;
+        max-width: 500px;
+        padding: 16px 20px;
+        font-size: 16px;
+        color: $blackColorPure;
+        background-color: $whiteColor02;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    
+        &::placeholder {
+          color: #cccccc;
+        }
+    
+        &:focus {
+          outline: none;
+          background-color: $whiteColor02;
+          border-color: $primaryColor;
+        }
+    }
+    
+    &__textarea {
+        width: 100%;
+        max-width: 600px;
+        padding: 16px 20px;
+        font-size: 1.6rem;
+        color: $blackColorPure;
+        background-color: $whiteColor02;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+        resize: vertical;
+        min-height: 180px;
+        font-family: inherit;
+        line-height: 1.6;
+        transition: all 0.3s ease;
+    
+        &::placeholder {
+          color: #cccccc;
+        }
+    
+        &:focus {
+          outline: none;
+          background-color: $whiteColor02;
+          border-color: $primaryColor;
+        }
+    }
+
+    // エラーメッセージ - デフォルトで非表示
+    &__error {
+        display: none;
+        color: #DC143C;
+        font-size: 1.6rem;
+        margin-top: 8px;
+        font-weight: 500;
+        line-height: 1.4;
+
+        @include mq("sp") {
+          font-size: 12px;
+        }
+    }
+    
+    &__submit-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    &__submit {
+        padding: 16px 80px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $primaryColor;
+        background-color: $whiteColor02;
+        border: 2px solid $primaryColor;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    
+        &:hover {
+          background-color: $primaryColor;
+          color: $whiteColor02;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(155, 200, 139, 0.3);
+        }
+    
+        &:active {
+          transform: translateY(0);
+        }
+    
+        @include mq("sp") {
+          padding: 14px 60px;
+          font-size: 16px;
+        }
+    }
+    
+    // ネイティブのselectを隠す（これを追加）
+&__native-select {
+    display: none !important;
+}
+}

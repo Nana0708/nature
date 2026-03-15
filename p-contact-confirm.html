@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>お問い合わせ確認 | 自然の恵み農園</title>
+<meta name="description" content="自然の恵み農園は、農園運営・牧場運営・オンライン販売を通じ、自然の恵みを感じて、豊かな未来を想像して頂ける取り組みを行なっています。" />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- favicon/web-clip-icon -->
+<link rel="icon" href="./src/img/favicon.ico" type="image/ico" />
+<link rel="apple-touch-icon" href="./src/img/apple-touch-icon.png" />
+
+ <!-- ogp -->
+<meta property="og:site_name" content="自然の恵み農園 | 自然の恵みを感じ、豊かな未来をつくる " />
+<meta property="og:url" content="サイトのURL（絶対パス） サイト公開後" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="自然の恵み農園 | 自然の恵みを感じ、豊かな未来をつくる " />
+<meta property="og:description" content="自然の恵み農園は、農園運営・牧場運営・オンライン販売を通じ、自然の恵みを感じて、豊かな未来を想像して頂ける取り組みを行なっています。" />
+<meta property="og:image" content="OGP画像のURL（絶対ぱす）推奨サイズは1200*630　サイト公開後" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="fb:app_id" content="AppID">
+
+<!-- twitter専用の出力　いる？？？ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@twitter_id" />
+<meta name="twitter:description" content="ページの説明" />
+<meta name="twitter:image:src" content="URL　シェアする時の画像　公開後" />
+
+ <!-- google fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+ <!-- css -->
+<link rel="stylesheet" href="css/style.css" />
+
+</head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+          <div class="header__logo-wrapper">
+              <a href="" class="header__logo-link">
+                  <img src="/src/img/logo.svg" alt="自然の恵みのロゴ" class="header__logo">
+              </a>
+          </div>
+          <nav class="header__nav">
+              <ul class="header__nav-list">
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">トップ</a>
+                      <span class="header__nav-deco">TOP</span>
+                  </li>
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">私たちについて</a>
+                      <span class="header__nav-deco">ABOUT</span>
+                  </li>
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">活動紹介</a>
+                      <span class="header__nav-deco">WORK</span>
+                  </li>
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">よくあるご質問</a>
+                      <span class="header__nav-deco">FAQ</span>
+                  </li>
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">お知らせ</a>
+                      <span class="header__nav-deco">NEWS</span>
+                  </li>
+                  <li class="header__nav-item">
+                      <a href="" class="header__nav-link">アクセス</a>
+                      <span class="header__nav-deco">ACCESS</span>
+                  </li>
+              <li class="header__nav-item header__contact-btn btn">
+                  <a href="" class="header__btn-link">お問い合わせ</a>
+              </li>
+              <li class="header__nav-item header__info">
+                <p class="header__info-txt">問い合わせ電話</p>
+                <a href="TEL:123-4567-8910" class="header__info-tel">123-4567-8910</a>
+                <p class="header__info-txt">【受付時間】</p>
+                <p class="header__info-time">10:00 ~ 18:00（土日祝を除く）</p>
+              </li>
+            </ul>
+          </nav>
+                        
+          <button class="header__hamburger">
+              <span class="header__hamburger-bar"></span>
+              <span class="header__hamburger-bar"></span>
+              <span class="header__hamburger-txt">MENU</span>
+          </button>
+      </div>
+  </header>
+  <main class="main">
+    <div class="p-contact-confirm">
+        <div class="p-contact-confirm__container">
+        <nav class="breadcrumb p-contact-confirm__breadcrumb" aria-label="パンくずリスト">
+                <ol class="breadcrumb__list">
+                  <li class="breadcrumb__item">
+                    <a href="/">ホーム</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    お問い合わせ
+                  </li>
+                </ol>
+        </nav>
+        <h2 class="section__ttl">お問い合わせ</h2>
+
+        <!-- 確認画面 -->
+        <div class="p-contact-confirm__wrapper">
+            <div class="p-contact-confirm__box">
+                
+                <!-- お問い合わせ種別 -->
+                <div class="p-contact-confirm__item">
+                    <div class="p-contact-confirm__label">
+                        お問い合わせ種別
+                        <span class="p-contact-confirm__badge p-contact-confirm__badge--required">必須</span>
+                    </div>
+                    <div class="p-contact-confirm__value" id="confirm-inquiry-type">その他</div>
+                </div>
+
+                <!-- お名前 -->
+                <div class="p-contact-confirm__item">
+                    <div class="p-contact-confirm__label">
+                        お名前
+                        <span class="p-contact-confirm__badge p-contact-confirm__badge--required">必須</span>
+                    </div>
+                    <div class="p-contact-confirm__value" id="confirm-name">山田太郎</div>
+                </div>
+
+                <!-- メールアドレス -->
+                <div class="p-contact-confirm__item">
+                    <div class="p-contact-confirm__label">
+                        メールアドレス
+                        <span class="p-contact-confirm__badge p-contact-confirm__badge--required">必須</span>
+                    </div>
+                    <div class="p-contact-confirm__value" id="confirm-email">Tarou.yamada@gmail.com</div>
+                </div>
+
+                <!-- 電話番号 -->
+                <div class="p-contact-confirm__item">
+                    <div class="p-contact-confirm__label">
+                        電話番号
+                    </div>
+                    <div class="p-contact-confirm__value" id="confirm-phone">080-1234-5678</div>
+                </div>
+
+                <!-- お問い合わせ内容 -->
+                <div class="p-contact-confirm__item">
+                    <div class="p-contact-confirm__label">
+                        お問い合わせ内容
+                        <span class="p-contact-confirm__badge p-contact-confirm__badge--required">必須</span>
+                    </div>
+                    <div class="p-contact-confirm__value p-contact-confirm__value--textarea" id="confirm-message">お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。お問い合わせ内容が入ります。</div>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div class="p-contact-confirm__btn-wrapper">
+                    <button type="button" class="p-contact-confirm__btn" id="submit-btn">送信する</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__layout-wrapper">
+          <div class="footer__logo-wrapper">
+            <a href="" class="footer__logo-link">
+                <img src="/src/img/logo.svg" alt="自然の恵みのロゴ" class="footer__logo">
+            </a>
+          </div>
+          <ul class="footer__info-list">
+            <li class="footer__info-item"><address class="footer__info-address">〒123-4567<br> 千葉県〇〇市××町1丁目23-45</address></li>
+            <li class="footer__info-item">
+              <a href="tel:123-4567-8910" class="footer__info-tel"> TEL:123-4567-8910</a><br>
+              <a href="" class="contact__info-fax"> FAX:12-345-6789</a>
+            </li>
+          </ul>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">ホーム</a>
+                </li>
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">私たちについて</a>
+                </li>
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">活動紹介</a>
+                </li>
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">よくあるご質問</a>
+                </li>
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">お知らせ</a>
+                </li>
+                <li class="footer__nav-item">
+                    <a href="" class="footer__nav-link">アクセス</a>
+                </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__sns">
+          <a href="" class="footer__sns-link">
+            <div class="footer__sns-icon"><img src="./src/img/x-icon.svg" alt="Xのアイコン" class="footer__sns-icon-img"></div>
+          </a>
+          <a href="" class="footer__sns-link">
+            <div class="footer__sns-icon"><img src="./src/img/insta-icon.svg" alt="Instagramのアイコン" class="footer__sns-icon-img"></div>
+          </a>
+          <a href="" class="footer__sns-link">
+            <div class="footer__sns-icon"><img src="./src/img/youtube-icon.svg" alt="YouTubeのアイコン" class="footer__sns-icon-img"></div>
+          </a>
+        </div>
+        
+        <p class="footer__copyright">
+          <small class="footer__copyright-txt">&copy; shizen-no-megumi-nouen Inc .2023</small>
+        </p>
+      </div>
+    </footer>
+
+<!-- j Queryの読み込み -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Slick CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+<!-- Slick JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- 自分のjsファイル -->
+ <script src="./src/js/main.js"></script>
+
+</body>
+</html>

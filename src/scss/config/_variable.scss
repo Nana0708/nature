@@ -1,14 +1,18 @@
+
 // 色管理用の変数
 $blackColor: #555555;
+$blackColorPure: #000;
 $whiteColor: #F9F9F9;
+$whiteColor02: #FFF;
 $primaryColor: #93C572;
 $accentColor: #F7B560;
+$shadowColor: rgba(0, 0, 0, 0.16); // #00000029
+$textShadowColor: rgba(0, 0, 0, 0.3); // #0000004D
 
 // コンテンツ幅管理用の変数
-$contentWidthSSm: 600px;
-$contentWidthSm: 980px;
-$contentWidth: 1112px;
-$contentWidthLg: 1200px;
+$contentWidthSm: 800px;
+$contentWidth: 960px;
+$contentWidthLg: 1088px;
 
 // z-index管理用の変数
 $zIndexBack: -1;

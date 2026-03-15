@@ -1,0 +1,13 @@
+// fvのフェードアウト
+.js-fade {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0px);
+}
+
+.scroll {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-80px);
+    transition: opacity 1s,visibility 1s, transform 1s;
+}

@@ -1,0 +1,177 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.faq {
+  margin-top: 113px;
+
+  &__container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: 44px;
+  }
+
+  &__item {
+    position: relative;
+    border: 3px solid $primaryColor;
+    border-radius: 50px;
+
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+
+    // 左側の白い部分（枠線を消す）
+    &::before {
+      content: "";
+      position: absolute;
+      left: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 40px;
+      background: $whiteColor;
+    }
+
+    // 右側の白い部分（枠線を消す）
+    &::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 40px;
+      background: $whiteColor;
+    }
+  }
+
+  &__question {
+    position: relative;
+
+    // Q マーク
+    &::before {
+      content: "Q";
+      position: absolute;
+      font-family: Archivo Narrow;
+      color: $primaryColor;
+      font-size: 35px;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include mq("tb") {
+        left: 19px;
+      }
+    }
+  }
+
+  &__toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     padding: 21px 40px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__toggle-icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+
+    // プラスの縦線
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $primaryColor;
+      width: 3px;
+      height: 21px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    // プラスの横線
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $primaryColor;
+      width: 21px;
+      height: 3px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // 開いている状態のアイコン（マイナス）
+  &__toggle[aria-expanded="true"] &__toggle-icon {
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+      opacity: 0;
+    }
+  }
+
+  &__q-text {
+    // font-size: 20px;
+    font-size: clamp(1.6rem, (100vw - 858px) / 2, 2rem);
+    margin-left: 18px;
+
+    font-weight: bold;
+    @include mq("tb") {
+      // font-size: 1.6rem;
+      margin-left: 5px;
+    }
+  }
+  
+  
+  .faq__answer {
+    position: relative;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    text-align: left;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  
+    &.is-open {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+  
+    // A マーク
+    &::before {
+      content: "A";
+      position: absolute;
+      font-family: Archivo Narrow;
+      color: $accentColor;
+      font-size: 35px;
+      left: 20px;   // ← 修正ポイント
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  .faq__a-content {
+    padding-left: 50px; // ← Aマークと揃えて安定
+  }
+  
+  
+  &__a-text {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-left: 12px;
+    @include mq("tb") {
+      font-size: 1.6rem;
+      padding-top: 25px;
+    }
+  }
+}

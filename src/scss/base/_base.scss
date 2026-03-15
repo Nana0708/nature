@@ -1,0 +1,98 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    scroll-padding-top: 160px;
+  
+
+}
+
+body {
+    color: $blackColor;
+    background: $whiteColor;
+    font-family: YuGothic , "Archivo Narrow", sans-serif;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    font-size: 1.6rem;
+
+}
+
+
+
+.section{
+    &__inner{
+       max-width: 960px;
+       margin: 0 auto;
+       z-index: 1;
+   }
+   &__ttl {
+       font-size: 4rem;
+       font-weight: bold;
+       position: relative;
+       z-index: 1;
+       display: inline-block;
+       @include mq("sp") {
+        font-size: 3rem;
+         
+       }
+       &::before {
+           content: "";
+           background: url(../src/img/title-line.svg) no-repeat center;
+           background-size: 100% 100% ;
+           position: absolute;
+           left: 0;
+           bottom: 15px;
+           width: 100%;
+           height: auto;
+           aspect-ratio: 304/ 25;
+           z-index: -1;
+       }
+
+   }
+   }
+
+   .sp-db {
+    display: none;
+    @include mq("sp") {
+      display: block;
+    }
+   }
+
+   .breadcrumb {
+    width: 100%;
+    padding: 16px 0; // 上下の余白はお好みで
+    font-size: 1.4rem;
+  
+    &__list {
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap; // スマホで折り返し可能
+    }
+  
+    &__item {
+      display: flex;
+      align-items: center;
+      color: #000; // テキスト色お好みで
+  
+      a {
+        color: inherit;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      // 矢印（>）部分
+      & + &::before {
+        content: ">";
+        color: #7bc27a; // 添付画像のような緑
+        margin: 0 0.5em;
+        font-weight: bold;
+      }
+    }
+  }
+  
+
