@@ -3,8 +3,8 @@
 function add_favicon()
 {
     $template_uri = get_template_directory_uri();
-    echo '<link rel="icon" type="image/x-icon" href="' . $template_uri . '/images/favicon.ico" />' . "\n";
-    echo '<link rel="apple-touch-icon" href="' . $template_uri . '/images/apple-touch-icon.png" />' . "\n";
+    echo '<link rel="icon" type="image/x-icon" href="' . $template_uri . '/src/img/favicon.ico" />' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . $template_uri . '/src/img/apple-touch-icon.png" />' . "\n";
 }
 add_action('wp_head', 'add_favicon');
 add_action('admin_head', 'add_favicon'); // WordPress管理画面用

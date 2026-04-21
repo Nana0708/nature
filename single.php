@@ -166,7 +166,7 @@
                                 if ($img_beside_url):
                             ?>
                                 <div class="p-single__beside-img">
-                                    <img src="<?php echo esc_url($img_beside_url); ?>" alt="<?php the_title_attribute(); ?>" />
+                                    <img src="<?php echo esc_url($img_beside_url); ?>" alt="<?php the_title_attribute(); ?>" / loading="lazy">
                                 </div>
                                 <?php endif; ?>
                             <?php endif; ?>

@@ -1,0 +1,43 @@
+@use "../config/mixin" as *;
+@use "../config/variable" as *;
+
+.not-found {
+  &__container {
+    padding: 141px 0;
+  }
+  &__txt {
+    text-align: center;
+  }
+  &__btn {
+    &-wrapper {
+      background: $whiteColor;
+      margin: 30px auto 0;
+      border: 2px solid $primaryColor;
+      border-radius: 50vb;
+      width: 301px;
+      @include mq(spXs) {
+        width: 250px;
+        margin: 28px auto 0;
+      }
+    }
+    &-link {
+      display: inline-block;
+      @include btn;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $primaryColor;
+      background: $whiteColor02;
+      transition: 0.3s;
+      @include hover {
+        background: $primaryColor;
+        color: $whiteColor;
+      }
+
+      &:active {
+        background: $primaryColor;
+        color: $whiteColor;
+      }
+    }
+  }
+}

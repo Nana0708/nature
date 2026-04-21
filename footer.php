@@ -10,7 +10,7 @@
             <li class="footer__info-item"><address class="footer__info-address">〒123-4567<br> 千葉県〇〇市××町1丁目23-45</address></li>
             <li class="footer__info-item">
               <a href="tel:123-4567-8910" class="footer__info-tel"> TEL:123-4567-8910</a><br>
-              <a href="" class="contact__info-fax"> FAX:12-345-6789</a>
+              <p class="contact__info-fax"> FAX:12-345-6789</p>
             </li>
           </ul>
           <nav class="footer__nav">

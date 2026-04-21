@@ -81,7 +81,7 @@ get_header(); ?>
                 the_post_thumbnail('medium_large', ['class' => 'p-news__img', 'alt' => get_the_title()]);
               else : ?>
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/src/img/no-image.png'); ?>"
-                     alt="No Image" class="p-news__img p-news__img--noimg">
+                     alt="No Image" class="p-news__img p-news__img--noimg" loading="lazy">
               <?php endif; ?>
 
               <?php if ( $first_cat ) : ?>

@@ -1,363 +1,150 @@
 @use "../config/mixin" as *;
 @use "../config/variable" as *;
 
+.p-single {
+  &__content {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 141px 20px 120px;
 
+    @include mq(sp) {
+      padding: 40px 16px 80px;
+    }
 
-/* =========================================
-   記事詳細ページ（single.php）
-   ========================================= */
-
-   .p-single {
-    &__content {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 141px 20px 120px;
-    }
-  
-    /* ------------------------------
-       パンくず
-       ------------------------------ */
-       /* パンくずリスト全体 */
-&__breadcrumb ul {
-  display: flex;
-  gap: 16px; /* 各項目の間隔 */
-  align-items: center;
-  font-size: 14px;
-  flex-wrap: wrap; /* 長い場合に折り返す */
-  padding: 0;
-  margin: 0 0 24px; /* 下に余白 */
-}
-
-/* 各 li */
-&__breadcrumb li {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  color: #333;
-}
-
-/* 区切りの＞を追加 */
-&__breadcrumb li + li::before {
-  content: "›"; /* または ">" */
-  margin-right: 16px;
-  color: #8fc285; /* 画像の薄い緑に合わせている */
-  font-size: 18px;
-  line-height: 1;
-}
-
-/* リンク */
-&__breadcrumb a {
-  color: #333;
-  text-decoration: none;
-}
-
-&__breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-
-    /* ------------------------------
-        タイトル
-       ------------------------------ */
-    &__heading {
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      color: #333;
-    }
-  
-    /* ------------------------------
-       日付・カテゴリ
-       ------------------------------ */
-    &__meta {
-      gap: 12px;
-      margin-bottom: 40px;
-  
-      .p-single__date {
-        color: #666;
-        font-size: 1.6rem;
-      }
-  
-      .p-single__category {
-        display: inline-block;
-        font-size: 14px;
-        padding: 4px 12px;
-        background: #a6d693;
-        color: #fff;
-        border-radius: 20px;
-      }
-    }
-  
-    /* ------------------------------
-       アイキャッチ
-       ------------------------------ */
-    &__featured-image {
-      margin: 0 auto 40px;
-      max-width: 640px;
-  
-      img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-      }
-    }
-  
-    /* ------------------------------
-       目次
-       ------------------------------ */
-    &__table {
-      border: 2px solid #74b86d;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 0 auto 60px;
-      max-width: 720px;
-      background: #fff;
-    }
-  
-    &__mokuzi {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #333;
-    }
-  
-    &__table-content {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-  
-      a {
-        text-decoration: none;
-        color: #333;
-  
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-    }
-  
-    &__table-title--main {
-      font-weight: 700;
-      font-size: 16px;
-  
-      .p-single__number {
-        margin-right: 4px;
-        color: #74b86d;
-        font-weight: 700;
-      }
-    }
-  
-    &__table-title--sub {
-      font-size: 15px;
-      padding-left: 14px;
-  
-      .p-single__dot {
-        margin-right: 4px;
-        color: #74b86d;
-      }
-    }
-  
-    /* ------------------------------
-       本文
-       ------------------------------ */
-    &__document {
-      margin-top: 40px;
-      line-height: 1.9;
-      color: #444;
-  
-      h2.p-single__title--main {
-        font-size: 24px;
-        margin: 80px 0 20px;
-        padding-bottom: 6px;
-        border-bottom: 3px solid #74b86d;
-        font-weight: 700;
-        color: #333;
-      }
-  
-      h3.p-single__title--sub {
-        font-size: 20px;
-        margin: 40px 0 16px;
-        display: flex;
-        align-items: center;
-        font-weight: 700;
-        color: #333;
-  
-        .p-single__box {
-          width: 10px;
-          height: 20px;
-          background: 4$primaryColor;
-          margin-right: 6px;
-          border-radius: 2px;
-        }
-      }
-    }
-  
-    /* ------------------------------
-       段落
-       ------------------------------ */
-    &__text {
-      margin-bottom: 32px;
-      font-size: 15px;
-      line-height: 1.9;
-    }
-  
-    /* ------------------------------
-       リスト
-       ------------------------------ */
-    &__list {
-      margin: 0 0 32px 20px;
-  
-      &-item {
-        list-style: disc;
-        font-size: 15px;
-        margin-bottom: 8px;
-      }
-    }
-  
-    /* ------------------------------
-       横並びエリア
-       ------------------------------ */
-    &__beside {
-      display: flex;
-      gap: 32px;
-      margin: 40px 0;
-  
-      &-text {
-        width: 60%;
-        font-size: 15px;
-        line-height: 1.9;
-      }
-  
-      &-img {
-        width: 40%;
-  
-        img {
-          width: 100%;
-          border-radius: 10px;
-          object-fit: cover;
-        }
-      }
-    }
-  
-    /* ------------------------------
-       一覧に戻るボタン
-       ------------------------------ */
-    &__button {
-      display: block;
-      margin: 60px auto 100px;
-      width: 200px;
-      padding: 14px 0;
-      border: 2px solid #74b86d;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
-  
-      &:hover {
-        background: #74b86d;
-      }
-  
-      &-text {
-        color: #74b86d;
-        font-size: 16px;
-        font-weight: 700;
-        transition: 0.3s;
-      }
-  
-      &:hover .p-single__button-text {
-        color: #fff;
-      }
-    }
-  }
-  
-  /* ------------------------------
-     SP レスポンシブ
-     ------------------------------ */
-  @media (max-width: 767px) {
-    .p-single {
-      &__content {
-        padding: 40px 16px 80px;
-      }
-  
-      &__heading {
-        font-size: 22px;
-      }
-  
-      &__beside {
-        flex-direction: column;
-  
-        &-text,
-        &-img {
-          width: 100%;
-        }
-      }
-  
-      &__table {
-        padding: 16px 18px;
-      }
-  
-      &__table-title--main,
-      &__table-title--sub {
-        font-size: 14px;
-      }
-  
-      &__button {
-        width: 180px;
-      }
+    @include mq(spSm) {
+      padding: 32px 12px 60px;
     }
   }
 
+  &__breadcrumb ul {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 14px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 24px;
 
+    @include mq(sp) {
+      font-size: 12px;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+  }
 
+  &__breadcrumb li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: #333;
+  }
 
-  /* ================================================
-      Heading / Meta
-  ================================================ */
-  .p-single{
+  &__breadcrumb li + li::before {
+    content: "›";
+    margin-right: 16px;
+    color: #8fc285;
+    font-size: 18px;
+    line-height: 1;
+
+    @include mq(sp) {
+      margin-right: 8px;
+      font-size: 14px;
+    }
+  }
+
+  &__breadcrumb a {
+    color: #333;
+    text-decoration: none;
+
+    @include hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
   &__heading {
-    font-size: clamp(20px, 3vw, 32px);
+    font-size: clamp(20px, 3vw, 40px);
     font-weight: 700;
-    margin-bottom: clamp(12px, 2vw, 16px);
+    line-height: 1.5;
+    margin-bottom: 16px;
     color: $blackColorPure;
+
+    @include mq(sp) {
+      font-size: clamp(18px, 5vw, 24px);
+      margin-bottom: 12px;
+    }
+
+    @include mq(spSm) {
+      font-size: 18px;
+    }
   }
 
   &__meta {
-    gap: 16px;
+    gap: 12px;
     align-items: center;
-    margin-bottom: clamp(24px, 4vw, 40px);
+    margin-bottom: 40px;
+
+    @include mq(sp) {
+      gap: 8px;
+      margin-bottom: 24px;
+    }
 
     .p-single__date {
-      font-size: clamp(12px, 1.4vw, 14px);
       color: $blackColor;
+      font-size: clamp(12px, 1.4vw, 14px);
     }
 
     .p-single__category {
-      font-size: clamp(12px, 1.4vw, 14px);
-      color: $whiteColor02;
-      background: $primaryColor;
-      padding: 4px 12px;
-      border-radius: 12px;
       display: inline-block;
+      font-size: clamp(12px, 1.4vw, 14px);
+      padding: 4px 12px;
+      background: $primaryColor;
+      color: $whiteColor02;
+      border-radius: 20px;
     }
   }
 
-  /* ================================================
-      Eyecatch
-  ================================================ */
   &__inner {
     background: $whiteColor02;
     box-shadow: 1px 1px 10px $shadowColor;
     border-radius: 100px;
     padding: 50px 160px;
 
+    @include mq(tb) {
+      padding: 40px 60px;
+      border-radius: 60px;
+    }
+
+    @include mq(sp) {
+      padding: 24px 16px;
+      border-radius: 24px;
+      box-shadow: 1px 1px 6px $shadowColor;
+    }
+
+    @include mq(spSm) {
+      padding: 20px 12px;
+      border-radius: 16px;
+    }
   }
+
   &__featured-image {
     margin-top: 50px;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 4px 12px $shadowColor;
     margin-bottom: clamp(28px, 5vw, 48px);
+    max-width: 640px;
+    margin-inline: auto;
+
+    @include mq(sp) {
+      border-radius: 12px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
 
     img {
       width: 100%;
@@ -366,73 +153,91 @@
     }
   }
 
-  /* ================================================
-      Table of Contents
-  ================================================ */
   &__table {
     border: 2px solid $primaryColor;
     border-radius: 12px;
     padding: clamp(16px, 3vw, 24px);
-    margin-bottom: clamp(32px, 6vw, 56px);
+    margin: 0 auto clamp(32px, 6vw, 56px);
+    max-width: 720px;
+    background: $whiteColor02;
 
-    .p-single__mokuzi {
+    @include mq(sp) {
+      max-width: 100%;
+      padding: 16px;
+    }
+  }
+
+  &__mokuzi {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  &__table-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    a {
+      text-decoration: none;
+      color: $blackColor;
+
+      @include hover {
+        opacity: 0.7;
+      }
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+
+    .p-single__table-title--main {
       font-weight: 700;
-      margin-bottom: 16px;
-      font-size: clamp(16px, 2vw, 20px);
-    }
-
-    &-content {
+      font-size: clamp(14px, 1.8vw, 16px);
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      gap: 4px;
+    }
 
-      a {
-        text-decoration: none;
-        color: $blackColor;
+    .p-single__table-title--sub {
+      font-size: 14px;
+      padding-left: 14px;
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
 
-        &:hover {
-          opacity: 0.7;
-        }
+      @include mq(sp) {
+        padding-left: 10px;
+        font-size: 13px;
       }
+    }
 
-      .p-single__table-title--main {
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
+    .p-single__number {
+      color: $accentColor;
+      font-weight: bold;
+    }
 
-      .p-single__table-title--sub {
-        margin-left: 16px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 14px;
-      }
-
-      .p-single__number {
-        color: $accentColor;
-        font-weight: bold;
-      }
-
-      .p-single__dot {
-        color: $primaryColor;
-          font-size: 3.6rem; // 好きな大きさに調整
-          line-height: 1;
-          display: inline-block;
-      }
+    .p-single__dot {
+      color: $primaryColor;
+      font-size: 1.6rem;
+      line-height: 1;
+      display: inline-block;
     }
   }
 
-
-  /* ================================================
-      Document Body
-  ================================================ */
   &__document {
+    margin-top: 40px;
     margin-bottom: clamp(40px, 7vw, 80px);
+    line-height: 1.9;
+    color: #444;
+
+    @include mq(sp) {
+      margin-top: 24px;
+    }
   }
 
-  /* H2 */
   &__title--main {
     font-size: clamp(18px, 2.5vw, 28px);
     font-weight: 700;
@@ -440,55 +245,76 @@
     margin-bottom: clamp(12px, 2vw, 16px);
     padding-bottom: 4px;
     border-bottom: 3px solid $primaryColor;
+    color: #333;
+
+    @include mq(sp) {
+      font-size: clamp(16px, 5vw, 22px);
+    }
+
+    @include mq(spSm) {
+      font-size: 16px;
+    }
   }
 
-  /* H3 */
   &__title--sub {
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(15px, 2vw, 22px);
     font-weight: 700;
     display: flex;
     gap: 8px;
     align-items: center;
-    margin-top: clamp(32px, 5vw, 48px);
-    margin-bottom: clamp(12px, 2vw, 16px);
+    margin-top: clamp(28px, 5vw, 48px);
+    margin-bottom: clamp(10px, 2vw, 16px);
+    color: #333;
+
+    @include mq(sp) {
+      font-size: clamp(15px, 4.5vw, 18px);
+    }
+
+    @include mq(spSm) {
+      font-size: 15px;
+    }
 
     .p-single__box {
       width: 8px;
       height: 20px;
       background: $primaryColor;
       flex-shrink: 0;
+      border-radius: 2px;
     }
   }
 
-  /* 段落 */
   &__text {
-    line-height: 1.8;
+    margin-bottom: clamp(24px, 4vw, 32px);
     font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.9;
     color: $blackColor;
-    margin-bottom: clamp(24px, 4vw, 32px);
-  }
 
-  /* リスト */
-  &__list {
-    margin-bottom: clamp(24px, 4vw, 32px);
-    padding-left: 20px;
-    li {
-      margin-bottom: 6px;
-      line-height: 1.6;
+    @include mq(sp) {
+      font-size: 14px;
     }
   }
 
-  /* ================================================
-      Text + Image Beside
-  ================================================ */
+  &__list {
+    margin: 0 0 clamp(24px, 4vw, 32px) 20px;
+    padding-left: 0;
+
+    &-item {
+      list-style: disc;
+      font-size: clamp(14px, 1.8vw, 15px);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+  }
+
   &__beside {
-    gap: clamp(20px, 4vw, 32px);
-    margin-bottom: clamp(40px, 6vw, 64px);
+    display: flex;
+    gap: clamp(16px, 4vw, 32px);
+    margin-bottom: clamp(32px, 6vw, 64px);
 
     &-text {
       flex: 1;
       font-size: clamp(14px, 1.8vw, 16px);
-      line-height: 1.8;
+      line-height: 1.9;
       color: $blackColor;
     }
 
@@ -497,6 +323,7 @@
       border-radius: 16px;
       overflow: hidden;
       flex: 1;
+
       img {
         width: 100%;
         height: auto;
@@ -506,20 +333,25 @@
 
     @include mq(sp) {
       flex-direction: column;
+      gap: 16px;
+
+      &-text {
+        width: 100%;
+        font-size: 14px;
+      }
+
       &-img {
         width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
       }
     }
   }
 
-  /* ================================================
-      Button
-  ================================================ */
   &__button {
     display: block;
     max-width: 260px;
-    margin-inline: auto;
-    margin-top: clamp(32px, 5vw, 56px);
+    margin: clamp(32px, 5vw, 56px) auto 0;
     padding: 12px 24px;
     border: 2px solid $primaryColor;
     border-radius: 30px;
@@ -529,9 +361,40 @@
     text-decoration: none;
     transition: 0.3s;
 
-    &:hover {
+    @include hover {
       background: $primaryColor;
       color: $whiteColor02;
+
+      .p-single__button-text {
+        color: $whiteColor02;
+      }
+    }
+
+    &:active {
+      background: $primaryColor;
+      color: $whiteColor02;
+
+      .p-single__button-text {
+        color: $whiteColor02;
+      }
+    }
+
+    @include mq(sp) {
+      max-width: 200px;
+      font-size: 14px;
+      padding: 10px 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__button-text {
+    color: $primaryColor;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.3s;
+
+    @include mq(sp) {
+      font-size: 14px;
     }
   }
 }

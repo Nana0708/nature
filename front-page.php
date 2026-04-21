@@ -3,9 +3,9 @@
 <section class="fv">
 <div class="fv__main-box">
 <div class="fv__img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/logo-2.svg" alt="自然の恵み農園" class="fv__img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/logo-2.svg" alt="自然の恵み農園" class="fv__img" loading="lazy">
 </div>
-<h1 class="fv__txt">自然の恵みを感じ、<br class="sp-db"> 豊かな未来を。</h1>
+<h1 class="fv__txt">自然の恵みを感じ、<br class="sp-db">豊かな未来を。</h1>
 </div>
 <div class="fv__news-card js-fade">
     <?php
@@ -18,9 +18,11 @@
     ?>
     <?php if ($news_posts) : ?>
         <?php foreach ($news_posts as $post) : setup_postdata($post); ?>
-            <a href="<?php the_permalink(); ?>" class="fv__news-card-txts">
-                <p class="fv__news-card-label">News</p>
-                <div class="fv__news-card-date"><?php the_time('Y.m.d'); ?></div>
+                <a href="<?php the_permalink(); ?>" class="fv__news-card-link">
+                <div class="fv__news-card-header">
+                    <p class="fv__news-card-label">News</p>
+                    <div class="fv__news-card-date"><?php the_time('Y.m.d'); ?></div></div>
+            
                 <div class="fv__news-card-ttl"><?php the_title(); ?></div>
             </a>
         <?php endforeach; ?>
@@ -38,22 +40,22 @@
 <section class="about" id="about">
 <div class="about__container section__inner">
 <div class="about__logo-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/logo.svg" alt="自然の恵み農園のロゴ" class="about__logo-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/logo.svg" alt="自然の恵み農園のロゴ" class="about__logo-img" loading="lazy">
 </div>
 <p class="about__txt">自然の恵み農園は、<br> 自然の恵みと動物の尊さが調和する<br class="sp-db">特別な場所です。 <br>新鮮で美味しい農産物を栽培し、<br class="sp-db">心温まる動物たちと触れ合える場所<br class="sp-db">でもあります。</p>
-<p class="about__txt">自然の恵みを受け、<br class="sp-db">動物たちとの特別なひとときを<br class="sp-db">楽しんでいただける場所として、<br>私たちは誇りを持って活動をしています。<br> 一緒に自然と動物の美しさを共有しましょう。</p>
+<p class="about__txt-bottom">自然の恵みを受け、<br class="sp-db">動物たちとの特別なひとときを<br class="sp-db">楽しんでいただける場所として、<br>私たちは誇りを持って活動をしています。<br> 一緒に自然と動物の美しさを共有しましょう。</p>
 <div class="about__images">
 <figure class="about__figure about__figure--top-left js-fade1">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image01.png" alt="羊" class="about__figure-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image01.png" alt="ヤギ" class="about__figure-img" loading="lazy">
 </figure>
 <figure class="about__figure about__figure--top-right js-fade2">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image02.png" alt="トマト" class="about__figure-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image02.png" alt="トマト" class="about__figure-img" loading="lazy">
 </figure>
 <figure class="about__figure about__figure--bottom-left js-fade3">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image03.png" alt="人" class="about__figure-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image03.png" alt="人" class="about__figure-img" loading="lazy">
 </figure>
 <figure class="about__figure about__figure--bottom-right js-fade4">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image04.png" alt="牛" class="about__figure-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/about-image04.png" alt="牛" class="about__figure-img" loading="lazy">
 </figure>
 </div>
 </div>
@@ -80,22 +82,22 @@
 <div class="work__slider">
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen01.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen01.png" class="work__slider-img" loading="lazy" alt="農園の人">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen02.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen02.png" class="work__slider-img" loading="lazy" alt="苺">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen03.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen03.png" class="work__slider-img" loading="lazy" alt="収穫する様子">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen04.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-nouen04.png" class="work__slider-img" loading="lazy" alt="畑">
 </div>
 </div>
 </div>
@@ -110,22 +112,22 @@
 <div class="work__slider">
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo01.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo01.png" class="work__slider-img" loading="lazy" alt="牛">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo02.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo02.png" class="work__slider-img" loading="lazy" alt="馬">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo03.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo03.png" class="work__slider-img" loading="lazy" alt="豚">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo04.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-bokujo04.png" class="work__slider-img" loading="lazy" alt="ヤギ">
 </div>
 </div>
 </div>
@@ -140,22 +142,22 @@
 <div class="work__slider">
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec01.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec01.png" class="work__slider-img" loading="lazy" alt="アイス">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec02.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec02.png" class="work__slider-img" loading="lazy" alt="バター">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec03.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec03.png" class="work__slider-img" loading="lazy" alt="ジャム">
 </div>
 </div>
 <div class="work__slider-item">
 <div class="work__slider-img-wrapper">
-<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec04.png" class="work__slider-img">
+<img src="<?php echo get_template_directory_uri(); ?>/src/img/work-ec04.png" class="work__slider-img" loading="lazy" alt="野菜">
 </div>
 </div>
 </div>
@@ -252,49 +254,54 @@
                 オンライン販売セールのお知らせなど、自然の恵み農園の最新情報を
                 お届けします。
             </p>
-            <div class="news__btn"><a href="<?php echo esc_url( home_url('/archi') ); ?>
-" class="news__btn-link">View More</a></div>
-            
+            <!-- PC用ボタン -->
+            <div class="news__btn news__btn--pc">
+                <a href="<?php echo esc_url( home_url('/archi') ); ?>" class="news__btn-link">View More</a>
+            </div>
         </div>
 
         <div class="news__right-content">
             <div class="article__list">
-
-        <?php
-                    $news_query = new WP_Query(
-                        array(
-                            'post_type'      => 'post',
-                            'posts_per_page' => 3,
-                        )
-                    );
-                    ?>
-                    <?php if ($news_query->have_posts()) : ?>
-                        <?php while ($news_query->have_posts()) : ?>
-                            <?php $news_query->the_post(); ?>
-                            <a href="<?php the_permalink() ?>">
-                                <div class="article__item">
-                                    <div class="article__header">
-                                        <div class="article__date"><?php the_time('Y.m.d'); ?></div>
-                                        <div class="">
-                                            <?php
-                                            $cats =  get_the_category();
-                                            foreach ($cats as $cat) {
-                                                echo '<span class="article__category">' . $cat->name . '</span>';
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <div class="article__ttl">
-                                        <?php the_title() ?>
+                <?php
+                $news_query = new WP_Query(
+                    array(
+                        'post_type'      => 'post',
+                        'posts_per_page' => 3,
+                    )
+                );
+                ?>
+                <?php if ($news_query->have_posts()) : ?>
+                    <?php while ($news_query->have_posts()) : ?>
+                        <?php $news_query->the_post(); ?>
+                        <a href="<?php the_permalink() ?>">
+                            <div class="article__item">
+                                <div class="article__header">
+                                    <div class="article__date"><?php the_time('Y.m.d'); ?></div>
+                                    <div class="">
+                                        <?php
+                                        $cats = get_the_category();
+                                        foreach ($cats as $cat) {
+                                            echo '<span class="article__category">' . $cat->name . '</span>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
-                            </a>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <?php wp_reset_postdata(); ?>
-
+                                <div class="article__ttl">
+                                    <?php the_title() ?>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
+
+        <!-- スマホ用ボタン -->
+        <div class="news__btn news__btn--sp">
+            <a href="<?php echo esc_url( home_url('/archi') ); ?>" class="news__btn-link">View More</a>
+        </div>
+
     </div>
 </section>
 
@@ -333,7 +340,7 @@
                         <a href="tel:012-3456-7890" class="access__right-tel">012-3456-7890</a>
                     </li>
                     <li class="access__right-item">
-                        10:00〜18:00 <br>（土日祝を除く）
+                        10:00〜18:00 <br class="sp-db">（土日祝を除く）
                     </li>
                 </ul>
             </div>
@@ -342,8 +349,6 @@
             <div class="access__map-container">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4794562441803!2d140.06050867548382!3d35.763597172560836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227f37354ac1%3A0xf8661a31a10fe201!2z44Ki44Oz44OH44Or44K744Oz5YWs5ZySIOWMl-mnkOi7iuWgtA!5e0!3m2!1sja!2sjp!4v1769174580870!5m2!1sja!2sjp"
-                    width="701"
-                    height="300"
                     style="border:0;"
                     allowfullscreen=""
                     loading="lazy"

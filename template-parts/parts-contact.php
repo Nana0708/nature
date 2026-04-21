@@ -8,7 +8,7 @@
         <div class="contact__btn btn"><a href="<?php echo esc_url( home_url('/contact') ); ?>
 " class="contact__btn-link">お問い合わせ</a></div>
         <p class="contact__info-item--first">
-            問い合わせ電話：<br class="tb">
+            問い合わせ電話：<br class="sp-db">
             <a href="tel:123-4567-8910" class="contact__info-tel">123-4567-8910</a>
         </p>
         <p class="contact__info-item">

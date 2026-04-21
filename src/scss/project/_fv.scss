@@ -2,189 +2,200 @@
 @use "../config/variable" as *;
 
 .fv {
-    background: url(/wp-content/themes/shizennomegumi/src/img/FV.jpg) no-repeat center /cover;
-    height: 100vh;
-    position: relative; // news-cardの絶対配置の基準にする
-    @include mq("sp") {
-      height: 600px;
-      overflow: hidden;
+  background: url(/wp-content/themes/shizennomegumi/src/img/FV.jpg) no-repeat
+    center / cover;
+  height: 768px;
+  position: relative;
+  @include mq("tb") {
+    height: 600px;
+    overflow: hidden;
+  }
+
+  &__main-box {
+    padding-top: 270px;
+    @include mq("tb") {
+      padding: 279px 9px 0px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    
-    &__main-box {
-        padding-top: 270px;
-        @include mq("sp") {
-            padding-top: 300px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    &-wrapper {
+      width: 100%;
+      max-width: 203px;
+      height: 157px;
+      margin: 0 auto;
+      @include mq(tb) {
+        max-width: 72px;
+        height: 56px;
+      }
+    }
+  }
+
+  &__txt {
+    letter-spacing: 0.15em;
+    line-height: 1.2;
+    font-size: 50px;
+    font-weight: bold;
+    color: $primaryColor;
+    text-shadow: 0px 3px 3px #0000004d;
+    text-align: center;
+    margin-top: 16px;
+    @include mq("tb") {
+      font-size: 2.5rem;
+      line-height: 1.48;
+      text-shadow: none;
+    }
+    @include mq(spSm) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__news-card {
+    width: 337px;
+    position: absolute;
+    right: 45px;
+    bottom: 54px;
+    background: $accentColor;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+    color: $whiteColor;
+    padding: 22px 15px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(0);
+
+    @include mq("tb") {
+      right: auto;
+      left: 20px;
+      bottom: 20px;
+      transform: translateX(0);
+      width: 142px;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: left;
     }
 
-    &__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        &-wrapper {
-            width: 100%;
-            max-width:203px;
-            height: 157px;
-            margin: 0 auto;
-            @include mq(sp){
-                max-width: 72px;
-                height: 56px;
-            }
-            
-        }
+    &.is-hidden {
+      opacity: 0;
+      transform: translateX(-100px);
+      pointer-events: none;
+
+      @media screen and (max-width: 900px) {
+        transform: translateX(calc(100vw + 100px));
+      }
     }
-    
-    &__txt {
-        letter-spacing: 0.15em;
-        line-height: 1.2;
-        font-size: 50px;
-        font-weight: bold;
-        color: $primaryColor;
-        text-shadow: 0px 3px 3px #0000004D;
-        text-align: center;
-        margin-top: 10px;
-        @include mq("sp") {
-          font-size: 2.5rem;
-          margin-top: 15px;
-            padding: 0 20px;
-        }
+
+    &-header {
+      @media screen and (max-width: 900px) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+      }
     }
-    
-    &__news-card {
+
+    &-label {
+      line-height: 0.6;
+      font-size: 20px;
+      @include mq("tb") {
+        font-size: 1.6rem;
+      }
+    }
+
+    &-date {
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      @media screen and (max-width: 900px) {
+        margin-top: 0;
+        font-size: 1rem;
+      }
+    }
+
+    &-ttl {
+      letter-spacing: 0.05em;
+      line-height: 0.75;
+      font-weight: bold;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media screen and (max-width: 900px) {
+        font-size: 1.2rem;
+        margin-top: 8px;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        white-space: wrap;
+      }
+    }
+  }
+
+  &__scroll {
+    &-box {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-name: scroll-bounce;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    &-txt {
+      color: $whiteColor;
+      font-size: 1.4rem;
+      @include mq("tb") {
+        display: none;
+      }
+    }
+
+    &-arrow {
+      padding-bottom: 77px;
+      position: relative;
+      &::before {
+        content: "";
         position: absolute;
-        right: 45px;
-        bottom: 48px;
-        background: $accentColor;
-        box-shadow: 0px 3px 6px #00000029;
-        border-radius: 20px;
-        color: $whiteColor;
-        padding: 15px 15px;
-        // アニメーション追加
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        transform: translateX(0); // 初期位置
-        
-        // SP版の調整 - 画像通り左下に配置
-        @media screen and (max-width: 900px){
-            right: auto;
-            left: 20px;
-            bottom: 20px; // fv内に収まるように修正
-            transform: translateX(0); // 初期位置をリセット
-            max-width: 200px;
-            width: calc(100% - 40px); // 左右に余白を確保
-            border-radius: 10px;
-            padding: 12px 15px;
-            text-align: left;
-        }
-    
-        &.is-hidden {
-          opacity: 0;
-          transform: translateX(-100px); // PC版: 左に移動
-          pointer-events: none;
-          
-          @media screen and (max-width: 900px) {
-            transform: translateX(calc(100vw + 100px)); // SP版: 右に完全にスライドアウト
-          }
-        }
-        
-        &-txts {
-            @media screen and (max-width: 900px) {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 8px;
-            }
-        }
-        
-        &-label {
-            font-size: 20px;
-            font-weight: bold;
-            @media screen and (max-width: 900px) {
-              font-size: 1.6rem;
-            }
-        }
-        
-        &-date {
-            font-size: 1.0rem;
-            margin-top: 10px;
-            @media screen and (max-width: 900px) {
-              margin-top: 0;
-              font-size: 1.0rem;
-            }
-        }
-        
-        &-ttl {
-            font-weight: bold;
-            margin-top: 3px;
-            @media screen and (max-width: 900px) {
-                font-size: 1.2rem;
-                margin-top: 8px;
-                line-height: 1.4;
-            }
-        }
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 63px;
+        background: $whiteColor;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 57%;
+        bottom: 10px;
+        transform: translateX(-45%);
+        width: 3px;
+        height: 20px;
+        background: #fff;
+        transform: rotate(45deg);
+      }
+      @include mq(tb) {
+        display: none;
+      }
     }
-    
-    &__scroll {
-        &-box {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            // animationプロパティをバラして記述
-            animation-name: scroll-bounce;
-            animation-duration: 1s;// 1回のアニメーションにかかる時間
-            animation-timing-function: linear;  // 動きの緩急
-            animation-iteration-count: infinite;     // 無限に繰り返す
-        }
-        
-        &-txt {
-            color: $whiteColor;
-            @include mq("sp") {
-              display: none;
-            }
-        }
-        
-        &-arrow {
-            padding-bottom: 77px;
-            position: relative;
-            &::before {
-                content: "";
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 3px;
-                height: 63px;
-                background: $whiteColor;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                left: 57%;
-                bottom: 10px;
-                transform: translateX(-45%);
-                width: 3px;
-                height: 20px;
-                background: #fff;
-                transform: rotate(45deg);
-            }
-            @include mq(sp) {
-              display: none;
-            }
-        }
-    }
+  }
 }
 
-// アニメーションの内容
 @keyframes scroll-bounce {
-    0% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(15px); // 下に15px動く
-    }
-    100% {
-        transform: translateX(-50%) translateY(0);    // 元の位置に戻る
-    }
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(15px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 }

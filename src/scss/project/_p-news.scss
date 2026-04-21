@@ -1,13 +1,6 @@
 @use "../config/mixin" as *;
 @use "../config/variable" as *;
-// ============================================================
-// _p-news.scss  お知らせ一覧ページ（アーカイブ / カテゴリー別）
-// ============================================================
 
-
-// ============================================================
-// p-news  セクション全体
-// ============================================================
 .p-news {
   background-color: $whiteColor;
   padding-block: 60px 100px;
@@ -19,13 +12,9 @@
     padding: 141px 20px 120px;
   }
 
-  // ============================================================
-  // p-news__filter  カテゴリーフィルターボタン群
-  // ============================================================
   &__filter {
     display: flex;
     justify-content: center;
-    // flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 8px;
   }
@@ -44,12 +33,15 @@
     font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
-    transition:
-      background-color 0.25s ease,
-      color 0.25s ease,
+    transition: background-color 0.25s ease, color 0.25s ease,
       border-color 0.25s ease;
 
-    &:hover {
+    @include hover {
+      background-color: $primaryColor;
+      color: $whiteColor02;
+    }
+
+    &:active {
       background-color: $primaryColor;
       color: $whiteColor02;
     }
@@ -60,22 +52,31 @@
       border-color: $primaryColor;
       pointer-events: none;
     }
+
+    @include mq(sp) {
+      padding: 8px 18px;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    @include mq(spSm) {
+      font-size: 1.2rem;
+    }
   }
 
-  // ============================================================
-  // p-news__list  記事一覧コンテナ
-  // ============================================================
   &__list {
     background: $whiteColor02;
     box-shadow: 1px 1px 10px $shadowColor;
     border-radius: 100px;
     padding: 50px;
     margin-top: 50px;
+
+    @include mq(sp) {
+      border-radius: 40px;
+      padding: 24px 16px;
+    }
   }
 
-  // ============================================================
-  // p-news__item  記事カード1枚
-  // ============================================================
   &__item {
     background-color: $whiteColor02;
     border-radius: 20px;
@@ -85,31 +86,60 @@
 
     &:not(:first-of-type) {
       margin-top: 50px;
+
+      @include mq(sp) {
+        margin-top: 24px;
+      }
     }
 
-    &:hover {
+    @include hover {
+      transform: translateY(-3px);
+    }
+
+    &:active {
       transform: translateY(-3px);
     }
   }
 
-  // ─── カードリンク全体（PC：flex横並び） ─────────────────────
   &__link {
     display: flex;
     align-items: flex-start;
     gap: 37px;
     text-decoration: none;
     color: inherit;
+
+    @include mq(sp) {
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
-  // ============================================================
-  // p-news__thumb  アイキャッチ列
-  // ============================================================
   &__thumb {
     flex: 0 0 300px;
     width: 300px;
     overflow: hidden;
     border-radius: 20px;
     aspect-ratio: 23 / 15;
+
+    @include mq(sp) {
+      flex: 0 0 auto;
+      width: 100%;
+      border-radius: 16px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 55%;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+        border-radius: 0 0 16px 16px;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
   }
 
   &__img {
@@ -130,18 +160,25 @@
     transform: scale(1.04);
   }
 
-  // ============================================================
-  // p-news__body  テキストエリア列
-  // ============================================================
   &__body {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
+
+    @include mq(sp) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 16px 16px;
+      gap: 4px;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.6);
+    }
   }
 
-  // ─── 日付 + カテゴリーバッジ ────────────────────────────────
   &__meta {
     display: flex;
     align-items: center;
@@ -153,9 +190,12 @@
     font-size: 1.4rem;
     color: $blackColor;
     letter-spacing: 0.05em;
+
+    @include mq(sp) {
+      font-size: 1.2rem;
+    }
   }
 
-  // catの共通スタイル
   &__cat {
     display: inline-flex;
     align-items: center;
@@ -163,41 +203,62 @@
     border-radius: 5px;
     background-color: $primaryColor;
     color: $whiteColor02;
-    font-size: 0.78rem;
+    font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     white-space: nowrap;
   }
 
-  // thumb内のcatはPC時は非表示
   &__cat--thumb {
     display: none;
+
+    @include mq(sp) {
+      display: inline-flex;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      font-size: 1.3rem;
+      padding: 5px 16px;
+    }
   }
 
-  // body内のcatはPC時は表示
   &__cat--body {
     display: inline-flex;
+
+    @include mq(sp) {
+      display: none;
+    }
   }
 
-  // ─── 記事タイトル ───────────────────────────────────────────
   &__title {
     font-size: clamp(2rem, 1.8vw, 1.4rem);
     font-weight: bold;
     color: $blackColorPure;
     line-height: 1.65;
     margin: 0;
+
+    @include mq(sp) {
+      color: $blackColor;
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
   }
 
-  // ─── 本文抜粋 ──────────────────────────────────────────────
   &__excerpt {
     font-size: 0.875rem;
     color: $blackColor;
     line-height: 1.8;
 
-    p { margin: 0; }
+    p {
+      margin: 0;
+    }
+
+    @include mq(sp) {
+      display: none;
+    }
   }
 
-  // ─── 記事なしメッセージ ────────────────────────────────────
   &__empty {
     text-align: center;
     color: $blackColor;
@@ -205,9 +266,6 @@
     font-size: 1rem;
   }
 
-  // ============================================================
-  // p-news__pager  ページネーション
-  // ============================================================
   &__pager {
     display: flex;
     justify-content: center;
@@ -230,9 +288,16 @@
       font-size: 1.4rem;
       color: $primaryColor;
       text-decoration: none;
-      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      transition: background-color 0.25s ease, color 0.25s ease,
+        box-shadow 0.25s ease;
 
-      &:hover {
+      @include hover {
+        background-color: $primaryColor;
+        color: $whiteColor02;
+        box-shadow: 0 4px 14px rgba(147, 197, 114, 0.45);
+      }
+
+      &:active {
         background-color: $primaryColor;
         color: $whiteColor02;
         box-shadow: 0 4px 14px rgba(147, 197, 114, 0.45);
@@ -251,117 +316,6 @@
         pointer-events: none;
         color: $blackColor;
       }
-    }
-  }
-}
-
-
-// ============================================================
-// SP：768px以下でオーバーレイカードに切り替え
-// ============================================================
-@media (max-width: 768px) {
-
-  .p-news {
-
-    &__list {
-      border-radius: 40px;
-      padding: 24px 16px;
-    }
-
-    &__item {
-      &:not(:first-of-type) {
-        margin-top: 24px;
-      }
-    }
-
-    // リンクを縦並びに
-    &__link {
-      flex-direction: column;
-      gap: 0;
-    }
-
-    // サムネイルをオーバーレイの基準にする
-    &__thumb {
-      flex: 0 0 auto;
-      width: 100%;
-      border-radius: 16px;
-      position: relative;
-
-      // グラデーションオーバーレイ
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 55%;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
-        border-radius: 0 0 16px 16px;
-        pointer-events: none;
-        z-index: 1;
-      }
-    }
-
-    // thumb内catをSPで右上に表示
-    &__cat--thumb {
-      display: inline-flex;
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 2;
-      font-size: 1.3rem;
-      padding: 5px 16px;
-    }
-
-    // body内catはSPで非表示（thumb内のみ表示）
-    &__cat--body {
-      display: none;
-    }
-
-    // bodyエリアを画像下部に重ねる
-    &__body {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 12px 16px 16px;
-      gap: 4px;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.6);
-    }
-
-    &__date {
-        color: $blackColor;
-      font-size: 1.2rem;
-    }
-
-    &__title {
-      color: $blackColor;
-      font-size: 1.4rem;
-      line-height: 1.5;
-    }
-
-    // 抜粋は非表示
-    &__excerpt {
-      display: none;
-    }
-
-    &__filter-btn {
-      padding: 8px 18px;
-      font-size: 1.3rem;
-      font-weight: bold;
-    }
-  }
-}
-
-// ============================================================
-// さらに小さいSP：600px以下
-// ============================================================
-@media (max-width: 600px) {
-  .p-news {
-    &__filter-btn {
-      padding: 8px 18px;
-      font-size: 1.2rem;
     }
   }
 }

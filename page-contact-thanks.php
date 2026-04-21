@@ -9,12 +9,13 @@
 
 
         <div class="p-contact__form-wrapper">
-        <h3 class="p-contact-thanks__heding">お問い合わせありがとうございました。</h3>
+        <h3 class="p-contact-thanks__heding">お問い合わせ<br class="sp-db">ありがとうございました。</h3>
             
-            <p class="p-contact-thanks__txt">担当者より5営業日以内に返信いたします。<br> お急ぎの場合は、お電話にてお問い合わせください。</p>
+            <p class="p-contact-thanks__txt">担当者より<br class="sp-db">5営業日以内に返信いたします。<br> お急ぎの場合は、<br class="sp-db">お電話にてお問い合わせください。</p>
             <div class="p-contact-thanks__info">
                 <p class="p-contact-thanks__info-item--first">
-                    問い合わせ電話：
+                    問い合わせ電話<br class="sp-db">
+                    <span class="sp-dn">：</span>
                     <a href="tel:123-4567-8910" class="p-contact-thanks__info-tel">123-4567-8910</a>
                 </p>
                 <p class="p-contact-thanks__info-item">
@@ -23,7 +24,7 @@
                 </p>
             </div>
             <div class="p-contact-thanks__btn-wrapper">
-                <a href="" class="p-contact-thanks__btn-link">TOPに戻る</a>
+                <a href="<?php echo esc_url( home_url('/') ); ?>" class="p-contact-thanks__btn-link">TOPに戻る</a>
             </div>
         </div>
         </div>

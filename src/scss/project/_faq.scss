@@ -2,15 +2,24 @@
 @use "../config/variable" as *;
 
 .faq {
-  margin-top: 113px;
+  margin-top: 106px;
+  @include mq("tb") {
+    margin-top: 68px;
+  }
 
   &__container {
     margin: 0 auto;
     text-align: center;
+    @include mq("tb") {
+      padding: 0 15px;
+    }
   }
 
   &__content {
-    margin-top: 44px;
+    margin-top: 30px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__item {
@@ -21,8 +30,13 @@
     &:not(:first-child) {
       margin-top: 50px;
     }
+    @include mq("tb") {
+      border-radius: 30px;
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
 
-    // 左側の白い部分（枠線を消す）
     &::before {
       content: "";
       position: absolute;
@@ -34,7 +48,6 @@
       background: $whiteColor;
     }
 
-    // 右側の白い部分（枠線を消す）
     &::after {
       content: "";
       position: absolute;
@@ -50,18 +63,18 @@
   &__question {
     position: relative;
 
-    // Q マーク
     &::before {
       content: "Q";
       position: absolute;
       font-family: Archivo Narrow;
       color: $primaryColor;
       font-size: 35px;
-      left: 20px;
+      left: 36px;
       top: 50%;
       transform: translateY(-50%);
       @include mq("tb") {
-        left: 19px;
+        left: 15px;
+        font-size: 25px;
       }
     }
   }
@@ -71,12 +84,15 @@
     background: transparent;
     border: none;
     cursor: pointer;
-     padding: 21px 40px;
+    padding: 14px 40px;
     text-align: left;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mq("tb") {
+      padding: 14px 15px 0 50px;
+    }
   }
 
   &__toggle-icon {
@@ -85,7 +101,6 @@
     height: 30px;
     flex-shrink: 0;
 
-    // プラスの縦線
     &::before {
       content: "";
       position: absolute;
@@ -98,7 +113,6 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    // プラスの横線
     &::after {
       content: "";
       position: absolute;
@@ -112,7 +126,6 @@
     }
   }
 
-  // 開いている状態のアイコン（マイナス）
   &__toggle[aria-expanded="true"] &__toggle-icon {
     &::before {
       transform: translate(-50%, -50%) rotate(90deg);
@@ -121,18 +134,16 @@
   }
 
   &__q-text {
-    // font-size: 20px;
     font-size: clamp(1.6rem, (100vw - 858px) / 2, 2rem);
-    margin-left: 18px;
-
+    margin-left: 40px;
     font-weight: bold;
     @include mq("tb") {
-      // font-size: 1.6rem;
-      margin-left: 5px;
+      font-size: 1.6rem;
+      margin-left: 0;
+      line-height: 1.5;
     }
   }
-  
-  
+
   .faq__answer {
     position: relative;
     overflow: hidden;
@@ -140,38 +151,53 @@
     opacity: 0;
     text-align: left;
     transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-  
+
     &.is-open {
       max-height: 500px;
       opacity: 1;
-      margin-top: 20px;
+      padding-bottom: 36px;
+      @include mq("tb") {
+        padding-bottom: 25px;
+        padding-top: 6px;
+      }
     }
-  
-    // A マーク
+
     &::before {
       content: "A";
       position: absolute;
       font-family: Archivo Narrow;
       color: $accentColor;
       font-size: 35px;
-      left: 20px;   // ← 修正ポイント
-      top: 50%;
-      transform: translateY(-50%);
+      left: 39px;
+      top: 0;
+      transform: none;
+      @include mq("tb") {
+        font-size: 25px;
+        left: 15px;
+        top: -14px;
+      }
     }
   }
-  
+
   .faq__a-content {
-    padding-left: 50px; // ← Aマークと揃えて安定
+    padding-left: 50px;
+    @include mq("tb") {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 28px;
+    }
   }
-  
-  
+
   &__a-text {
     font-size: 20px;
-    line-height: 1.8;
-    margin-left: 12px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    margin-left: 31px;
     @include mq("tb") {
       font-size: 1.6rem;
-      padding-top: 25px;
+      line-height: 1.6;
+      margin-left: 0;
+      padding-top: 0;
     }
   }
 }
